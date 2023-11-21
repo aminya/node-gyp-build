@@ -12,18 +12,18 @@
     "test": "standard && node test"
   },
   "bin": {
-    "node-gyp-build": "./bin.js",
-    "node-gyp-build-optional": "./optional.js",
-    "node-gyp-build-test": "./build-test.js"
+    "aminya-node-gyp-build": "./bin.js",
+    "aminya-node-gyp-build-optional": "./optional.js",
+    "aminya-node-gyp-build-test": "./build-test.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/prebuild/node-gyp-build.git"
+    "url": "https://github.com/aminya/node-gyp-build.git"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/prebuild/node-gyp-build/issues"
+    "url": "https://github.com/aminya/node-gyp-build/issues"
   },
-  "homepage": "https://github.com/prebuild/node-gyp-build"
+  "homepage": "https://github.com/aminya/node-gyp-build"
 }

@@ -1,5 +1,7 @@
 # node-gyp-build
 
+Fork created because of https://github.com/prebuild/node-gyp-build/pull/55
+
 > Build tool and bindings loader for [`node-gyp`][node-gyp] that supports prebuilds.
 
 ```
