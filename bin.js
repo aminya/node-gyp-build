@@ -17,18 +17,20 @@ if (!buildFromSource()) {
 }
 
 function build () {
-  var args = [os.platform() === 'win32' ? 'node-gyp.cmd' : 'node-gyp', 'rebuild']
+  var win32 = os.platform() === 'win32'
+  var args = [win32 ? 'node-gyp.cmd' : 'node-gyp', 'rebuild']
 
   try {
+    var pkg = require('node-gyp/package.json')
     args = [
       process.execPath,
-      path.join(require.resolve('node-gyp/package.json'), '..', require('node-gyp/package.json').bin['node-gyp']),
+      path.join(require.resolve('node-gyp/package.json'), '..', typeof pkg.bin === 'string' ? pkg.bin : pkg.bin['node-gyp']),
       'rebuild'
     ]
   } catch (_) {}
 
-  proc.spawn(args[0], args.slice(1), { stdio: 'inherit' }).on('exit', function (code) {
-    if (code) process.exit(code)
+  proc.spawn(args[0], args.slice(1), { stdio: 'inherit', shell: win32, windowsHide: true }).on('exit', function (code) {
+    if (code || !process.argv[3]) process.exit(code)
   })
 }
 
